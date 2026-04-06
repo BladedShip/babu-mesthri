@@ -1,50 +1,49 @@
-# Welcome to your Expo app 👋
+# The Guardian (Babu Mesthri)
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A premium, privacy-first, offline AI assistant built with React Native and Expo. The application features a custom, monolithic dark aesthetic ("The Guardian") designed to execute neural engine inference entirely inside your mobile device.
 
-## Get started
+## Features
 
-1. Install dependencies
+- **Monolithic Dark Theme**: A sleek, premium dark-mode interface built natively with React Native `StyleSheet`, independent of external layout libraries.
+- **Strict Offline Mode**: A maximum security protocol toggle in the Vault that forces strictly local processing and blocks all external API telemetry.
+- **Model Hub**: Download, manage, and activate local models (e.g., Guardian-7B, Qwen2.5) while monitoring real-time system RAM availability.
+- **Hardware Authentication**: A specialized onboarding sequence that assesses your device's neural engine capacity.
+- **Encrypted Conversational Canvas**: A beautiful native chat interface, featuring custom assistant bubbles, a floating input terminal, and multi-session persistence.
 
+## Tech Stack
+
+- **Framework**: [Expo](https://expo.dev) & React Native
+- **State Management**: [Zustand](https://github.com/pmndrs/zustand)
+- **Typography**: `@expo-google-fonts` (`Inter`, `Manrope`, `Space Grotesk`)
+- **Icons**: `@expo/vector-icons`
+- **Navigation**: Expo Router (File-based Routing)
+- **Routing & Interactivity**: `react-native-reanimated`
+
+## Getting Started
+
+1. **Install Dependencies**
+
+   We recommend using `bun` for optimal performance.
    ```bash
-   npm install
+   bun install
    ```
 
-2. Start the app
+2. **Start the Application**
 
+   Run the application directly on the iOS Simulator:
    ```bash
-   npx expo start
+   bunx expo run:ios
    ```
 
-In the output, you'll find options to open the app in a
+   To clear the Metro cache if experiencing font or module resolution issues:
+   ```bash
+   bunx expo start -c
+   ```
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Project Structure
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- `/app` - File-based layouts and tabs including the main Chat (`index.tsx`), Model Hub (`models.tsx`), and settings (`vault.tsx`).
+- `/components` - Reusable interface items like the navigation sidebar.
+- `/constants` - Contains the `theme.ts` exporting our custom dark color palette.
+- `/services` - Standalone services managing mock permissions and the Inference/Model downloads.
+- `/store` - Global state architecture implemented with Zustand.
