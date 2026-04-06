@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Guardian - Hardware Check</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#e5e2e1",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary": "#233144",
+                        "primary-fixed": "#6ffbbe",
+                        "primary-container": "#10b981",
+                        "surface-container-high": "#2a2a2a",
+                        "tertiary-fixed-dim": "#b9c7e0",
+                        "on-secondary": "#213145",
+                        "inverse-primary": "#006c49",
+                        "surface-dim": "#131313",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-secondary-fixed": "#0b1c30",
+                        "on-error": "#690005",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "on-tertiary-container": "#2c3a4e",
+                        "tertiary-fixed": "#d5e3fd",
+                        "surface-container-low": "#1c1b1b",
+                        "background": "#131313",
+                        "on-tertiary-fixed-variant": "#3a485c",
+                        "on-primary-fixed": "#002113",
+                        "tertiary": "#b9c7e0",
+                        "tertiary-container": "#95a4bb",
+                        "outline": "#86948a",
+                        "surface-bright": "#393939",
+                        "surface-tint": "#4edea3",
+                        "inverse-on-surface": "#313030",
+                        "on-tertiary-fixed": "#0d1c2f",
+                        "surface-variant": "#353534",
+                        "error": "#ffb4ab",
+                        "on-primary-container": "#00422b",
+                        "primary": "#4edea3",
+                        "inverse-surface": "#e5e2e1",
+                        "secondary": "#b7c8e1",
+                        "outline-variant": "#3c4a42",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "surface-container": "#201f1f",
+                        "error-container": "#93000a",
+                        "on-primary": "#003824",
+                        "secondary-fixed": "#d3e4fe",
+                        "on-surface": "#e5e2e1",
+                        "on-surface-variant": "#bbcabf",
+                        "secondary-container": "#3a4a5f",
+                        "on-secondary-container": "#a9bad3",
+                        "primary-fixed-dim": "#4edea3",
+                        "on-primary-fixed-variant": "#005236",
+                        "surface-container-highest": "#353534",
+                        "surface": "#131313"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Space Grotesk"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ghost-border {
+            border: 1px solid rgba(60, 74, 66, 0.2);
+        }
+        .glow-pulse {
+            box-shadow: 0 0 15px rgba(78, 222, 163, 0.1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex items-center justify-between px-6 h-16 bg-[#131313]">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#4edea3] hover:opacity-80 transition-opacity cursor-pointer active:duration-150 scale-95" data-icon="arrow_back">arrow_back</span>
+<span class="text-lg font-bold tracking-tight text-[#4edea3] font-headline tracking-tighter font-semibold">The Guardian</span>
+</div>
+<span class="material-symbols-outlined text-[#4edea3] hover:opacity-80 transition-opacity cursor-pointer active:duration-150 scale-95" data-icon="shield_lock">shield_lock</span>
+</header>
+<main class="flex-grow pt-24 pb-12 px-6 max-w-2xl mx-auto w-full flex flex-col gap-10">
+<!-- Header Section -->
+<section class="flex flex-col gap-2">
+<span class="font-label text-[10px] uppercase tracking-widest text-primary">System Initialization</span>
+<h1 class="font-headline text-3xl font-extrabold tracking-tighter">Hardware Authentication</h1>
+<p class="text-on-surface-variant text-sm">Optimizing the neural engine for your specific device architecture.</p>
+</section>
+<!-- Scanning State Card -->
+<div class="bg-surface-container-low rounded-xl p-8 flex flex-col items-center justify-center gap-6 relative overflow-hidden">
+<!-- Decorative Background Element -->
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/5 to-transparent opacity-50"></div>
+<div class="relative w-24 h-24 flex items-center justify-center">
+<div class="absolute inset-0 border-2 border-primary/20 rounded-full"></div>
+<div class="absolute inset-0 border-t-2 border-primary rounded-full animate-spin"></div>
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="memory" style="font-variation-settings: 'FILL' 1;">memory</span>
+</div>
+<div class="text-center z-10">
+<h2 class="font-label text-sm uppercase tracking-widest text-on-surface">Scanning Hardware...</h2>
+<div class="flex gap-1 mt-3 justify-center">
+<div class="w-1 h-1 bg-primary rounded-full"></div>
+<div class="w-1 h-1 bg-primary rounded-full opacity-50"></div>
+<div class="w-1 h-1 bg-primary rounded-full opacity-20"></div>
+</div>
+</div>
+</div>
+<!-- Detected Metrics Bento -->
+<div class="grid grid-cols-2 gap-4">
+<!-- RAM Card -->
+<div class="bg-surface-container-high rounded-lg p-5 flex flex-col gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="developer_board">developer_board</span>
+<span class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant">System Memory</span>
+</div>
+<div>
+<span class="font-headline text-2xl font-bold">12.4 GB</span>
+<p class="text-[10px] font-label text-primary/80 mt-1">AVAILABLE LPDDR5X</p>
+</div>
+</div>
+<!-- CPU Card -->
+<div class="bg-surface-container-high rounded-lg p-5 flex flex-col gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="speed">speed</span>
+<span class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant">Neural Engine</span>
+</div>
+<div>
+<span class="font-headline text-2xl font-bold">Octa-Core</span>
+<p class="text-[10px] font-label text-primary/80 mt-1">NPU OPTIMIZED</p>
+</div>
+</div>
+</div>
+<!-- Recommendation Section -->
+<section class="bg-surface-container-lowest rounded-xl p-6 ghost-border relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-6xl" data-icon="star">star</span>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<span class="bg-primary-container/20 text-primary px-3 py-1 rounded-full font-label text-[10px] uppercase tracking-widest">Recommended</span>
+</div>
+<div>
+<h3 class="font-headline text-xl font-bold tracking-tight">Guardian-7B (Quantum)</h3>
+<p class="text-sm text-on-surface-variant mt-2 leading-relaxed">
+                        Based on your <span class="text-on-surface font-semibold">12GB RAM</span>, the 7-billion parameter model offers the perfect balance of reasoning speed and private accuracy.
+                    </p>
+</div>
+<div class="grid grid-cols-3 gap-2 mt-2">
+<div class="flex flex-col items-center p-2 bg-surface-container-high rounded">
+<span class="font-label text-[10px] text-on-surface-variant">SPEED</span>
+<span class="text-xs font-bold text-primary">~45 t/s</span>
+</div>
+<div class="flex flex-col items-center p-2 bg-surface-container-high rounded">
+<span class="font-label text-[10px] text-on-surface-variant">ACCURACY</span>
+<span class="text-xs font-bold text-primary">HIGH</span>
+</div>
+<div class="flex flex-col items-center p-2 bg-surface-container-high rounded">
+<span class="font-label text-[10px] text-on-surface-variant">VRAM</span>
+<span class="text-xs font-bold text-primary">4.2 GB</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Privacy Badge -->
+<div class="flex items-center justify-center gap-3 py-4 border-y border-outline-variant/10">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<div class="flex flex-col">
+<span class="font-label text-[11px] uppercase tracking-tighter text-on-surface font-bold">Privacy Guarantee</span>
+<span class="text-[10px] text-on-surface-variant">No data leaves this device. Processing is 100% local.</span>
+</div>
+</div>
+<!-- Action Area -->
+<footer class="flex flex-col gap-4 mt-auto">
+<button class="w-full h-14 rounded-lg bg-gradient-to-br from-primary to-primary-container flex items-center justify-center gap-2 group transition-all active:scale-[0.98]">
+<span class="text-on-primary font-headline font-bold">Continue to Model Hub</span>
+<span class="material-symbols-outlined text-on-primary group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</button>
+<p class="text-center text-[10px] text-on-surface-variant font-label uppercase tracking-widest opacity-60">
+                Encrypted Session ID: 8F2-UX9-P02
+            </p>
+</footer>
+</main>
+<!-- Visual Texture Layers -->
+<div class="fixed inset-0 pointer-events-none z-[-1] opacity-20">
+<div class="absolute inset-0" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBY72PMzpfK0W0Ix-wy71jEo7xnQzwRAozFciOlMUvEg5qm2vhjFrSbM7AXojVH7ghgE96nagPSVC6tF0TmkdpOxa2A4yfUJrk7A9L5MbAiwE9ZSpYdna8pVEblTNYYaVXVpK6iKMz0wITobVGcFw0ivmZB-GIyeKb1-3yDRLtzqX-pCw_yxNw07BJKnOAC5ZXx_JRkNfzjvjvzi-t1F1UK2mNalEcNefauDx7mZ8RE3wCoeHASHV8m-SDnEGW1BB67m1nkJDWleMOd');"></div>
+</div>
+</body></html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Guardian - Model Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#e5e2e1",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary": "#233144",
+                        "primary-fixed": "#6ffbbe",
+                        "primary-container": "#10b981",
+                        "surface-container-high": "#2a2a2a",
+                        "tertiary-fixed-dim": "#b9c7e0",
+                        "on-secondary": "#213145",
+                        "inverse-primary": "#006c49",
+                        "surface-dim": "#131313",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-secondary-fixed": "#0b1c30",
+                        "on-error": "#690005",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "on-tertiary-container": "#2c3a4e",
+                        "tertiary-fixed": "#d5e3fd",
+                        "surface-container-low": "#1c1b1b",
+                        "background": "#131313",
+                        "on-tertiary-fixed-variant": "#3a485c",
+                        "on-primary-fixed": "#002113",
+                        "tertiary": "#b9c7e0",
+                        "tertiary-container": "#95a4bb",
+                        "outline": "#86948a",
+                        "surface-bright": "#393939",
+                        "surface-tint": "#4edea3",
+                        "inverse-on-surface": "#313030",
+                        "on-tertiary-fixed": "#0d1c2f",
+                        "surface-variant": "#353534",
+                        "error": "#ffb4ab",
+                        "on-primary-container": "#00422b",
+                        "primary": "#4edea3",
+                        "inverse-surface": "#e5e2e1",
+                        "secondary": "#b7c8e1",
+                        "outline-variant": "#3c4a42",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "surface-container": "#201f1f",
+                        "error-container": "#93000a",
+                        "on-primary": "#003824",
+                        "secondary-fixed": "#d3e4fe",
+                        "on-surface": "#e5e2e1",
+                        "on-surface-variant": "#bbcabf",
+                        "secondary-container": "#3a4a5f",
+                        "on-secondary-container": "#a9bad3",
+                        "primary-fixed-dim": "#4edea3",
+                        "on-primary-fixed-variant": "#005236",
+                        "surface-container-highest": "#353534",
+                        "surface": "#131313"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Space Grotesk"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #131313; color: #e5e2e1; }
+        .font-manrope { font-family: 'Manrope', sans-serif; }
+        .font-space-grotesk { font-family: 'Space Grotesk', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .ghost-border { border: 1px solid rgba(60, 74, 66, 0.2); }
+        .primary-gradient { background: linear-gradient(135deg, #4edea3 0%, #10b981 100%); }
+        .glow-active { box-shadow: 0 0 20px rgba(78, 222, 163, 0.1); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex items-center justify-between px-6 h-16 bg-[#131313]">
+<div class="flex items-center gap-4">
+<button class="text-[#4edea3] hover:opacity-80 transition-opacity scale-95 active:duration-150">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="text-lg font-bold tracking-tight text-[#4edea3] font-manrope tracking-tighter font-semibold">Model Hub</h1>
+</div>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-[#4edea3]" data-icon="shield_lock">shield_lock</span>
+</div>
+<!-- Separation Logic -->
+<div class="absolute bottom-0 left-0 bg-[#1c1c1c] h-[1px] w-full"></div>
+</header>
+<main class="pt-24 px-6 max-w-4xl mx-auto space-y-12">
+<!-- RAM Checker (Bento Style) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="md:col-span-2 bg-surface-container-low p-8 rounded-xl flex flex-col justify-between space-y-8">
+<div class="flex justify-between items-start">
+<div>
+<span class="font-label text-[10px] uppercase tracking-widest text-primary">System Entropy</span>
+<h2 class="font-headline text-2xl font-extrabold tracking-tight mt-1">Device Memory</h2>
+</div>
+<span class="font-label text-[10px] uppercase tracking-widest px-2 py-1 bg-surface-container-highest text-primary-fixed rounded">Optimal</span>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-baseline">
+<span class="font-headline text-5xl font-extrabold tracking-tighter text-on-surface">4.2<span class="text-xl text-outline ml-1">GB</span></span>
+<span class="font-label text-sm text-outline">/ 8GB AVAILABLE</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[52.5%]"></div>
+</div>
+</div>
+</div>
+<div class="bg-primary-container/10 p-8 rounded-xl ghost-border flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="memory">memory</span>
+<span class="font-label text-[10px] uppercase tracking-widest text-primary mb-2">Neural Engine</span>
+<p class="font-body text-sm text-on-surface-variant">Active optimization for offline inference in progress.</p>
+</div>
+</section>
+<!-- Model Tiers -->
+<section class="space-y-8">
+<!-- Low-End -->
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<h3 class="font-label text-[10px] uppercase tracking-[0.2em] text-outline">Tier 01: Resource Efficient</h3>
+<div class="flex-grow h-[1px] bg-outline-variant/30"></div>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<!-- Qwen 0.5B -->
+<div class="bg-surface-container-high p-6 rounded-lg flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div class="flex items-center gap-5">
+<div class="w-12 h-12 rounded bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary" data-icon="terminal">terminal</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h4 class="font-headline text-lg font-bold">Qwen 0.5B</h4>
+<span class="bg-secondary-container text-on-secondary-container font-label text-[9px] px-2 py-0.5 rounded-full uppercase">GGUF</span>
+<span class="material-symbols-outlined text-primary text-xs" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<p class="font-label text-xs text-outline tracking-wider mt-1">320MB • FP16 • LOW LATENCY</p>
+</div>
+</div>
+<div class="flex-grow max-w-xs px-4">
+<div class="flex justify-between text-[10px] font-label text-outline mb-1">
+<span>SYNCING</span>
+<span>100%</span>
+</div>
+<div class="h-1 w-full bg-surface-container-highest rounded-full">
+<div class="h-full bg-primary w-full"></div>
+</div>
+</div>
+<button class="primary-gradient text-on-primary font-label text-xs px-6 py-2.5 rounded-md font-bold uppercase tracking-widest transition-transform active:scale-95">Activate</button>
+</div>
+<!-- Llama 1B -->
+<div class="bg-surface-container-low p-6 rounded-lg flex flex-col md:flex-row md:items-center justify-between gap-6 ghost-border">
+<div class="flex items-center gap-5">
+<div class="w-12 h-12 rounded bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary" data-icon="data_object">data_object</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h4 class="font-headline text-lg font-bold">Llama 1B</h4>
+<span class="bg-secondary-container text-on-secondary-container font-label text-[9px] px-2 py-0.5 rounded-full uppercase">GGUF</span>
+</div>
+<p class="font-label text-xs text-outline tracking-wider mt-1">1.1GB • Q4_K_M • BALANCED</p>
+</div>
+</div>
+<div class="flex-grow max-w-xs px-4">
+<div class="flex justify-between text-[10px] font-label text-outline mb-1">
+<span>DOWNLOAD</span>
+<span>0%</span>
+</div>
+<div class="h-1 w-full bg-surface-container-highest rounded-full">
+<div class="h-full bg-primary w-0"></div>
+</div>
+</div>
+<button class="border border-outline-variant text-on-surface font-label text-xs px-6 py-2.5 rounded-md font-bold uppercase tracking-widest hover:bg-surface-variant transition-colors">Download</button>
+</div>
+</div>
+</div>
+<!-- Mid-Range -->
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<h3 class="font-label text-[10px] uppercase tracking-[0.2em] text-outline">Tier 02: High Intelligence</h3>
+<div class="flex-grow h-[1px] bg-outline-variant/30"></div>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<!-- Qwen2.5-VL-3B -->
+<div class="bg-surface-container-high p-6 rounded-lg flex flex-col md:flex-row md:items-center justify-between gap-6 glow-active">
+<div class="flex items-center gap-5">
+<div class="w-12 h-12 rounded bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="visibility">visibility</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h4 class="font-headline text-lg font-bold">Qwen2.5-VL-3B</h4>
+<span class="bg-secondary-container text-on-secondary-container font-label text-[9px] px-2 py-0.5 rounded-full uppercase">GGUF</span>
+<span class="material-symbols-outlined text-primary text-xs" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<p class="font-label text-xs text-outline tracking-wider mt-1">2.4GB • Q5_0 • VISION CAPABLE</p>
+</div>
+</div>
+<div class="flex-grow max-w-xs px-4">
+<div class="flex justify-between text-[10px] font-label text-primary mb-1">
+<span>FETCHING BYTES</span>
+<span>64%</span>
+</div>
+<div class="h-1 w-full bg-surface-container-highest rounded-full">
+<div class="h-full bg-primary w-[64%]"></div>
+</div>
+</div>
+<button class="border border-primary/50 text-primary font-label text-xs px-6 py-2.5 rounded-md font-bold uppercase tracking-widest bg-primary/5">Cancel</button>
+</div>
+<!-- Gemma 2B -->
+<div class="bg-surface-container-low p-6 rounded-lg flex flex-col md:flex-row md:items-center justify-between gap-6 ghost-border">
+<div class="flex items-center gap-5">
+<div class="w-12 h-12 rounded bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary" data-icon="neurology">neurology</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h4 class="font-headline text-lg font-bold">Gemma 2B</h4>
+<span class="bg-secondary-container text-on-secondary-container font-label text-[9px] px-2 py-0.5 rounded-full uppercase">GGUF</span>
+</div>
+<p class="font-label text-xs text-outline tracking-wider mt-1">1.8GB • Q8_0 • PRECISE</p>
+</div>
+</div>
+<div class="flex-grow max-w-xs px-4 opacity-30">
+<div class="flex justify-between text-[10px] font-label text-outline mb-1">
+<span>INERT</span>
+<span>0%</span>
+</div>
+<div class="h-1 w-full bg-surface-container-highest rounded-full"></div>
+</div>
+<button class="border border-outline-variant text-on-surface font-label text-xs px-6 py-2.5 rounded-md font-bold uppercase tracking-widest hover:bg-surface-variant transition-colors">Download</button>
+</div>
+</div>
+</div>
+<!-- High-End -->
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<h3 class="font-label text-[10px] uppercase tracking-[0.2em] text-outline">Tier 03: Professional Grade</h3>
+<div class="flex-grow h-[1px] bg-outline-variant/30"></div>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<!-- Llama 3B -->
+<div class="bg-surface-container-low p-6 rounded-lg flex flex-col md:flex-row md:items-center justify-between gap-6 ghost-border">
+<div class="flex items-center gap-5">
+<div class="w-12 h-12 rounded bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary" data-icon="architecture">architecture</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h4 class="font-headline text-lg font-bold">Llama 3.2 3B</h4>
+<span class="bg-secondary-container text-on-secondary-container font-label text-[9px] px-2 py-0.5 rounded-full uppercase">GGUF</span>
+<span class="material-symbols-outlined text-primary text-xs" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<p class="font-label text-xs text-outline tracking-wider mt-1">3.2GB • Q4_K_S • FLAGSHIP</p>
+</div>
+</div>
+<div class="flex-grow max-w-xs px-4 opacity-30">
+<div class="flex justify-between text-[10px] font-label text-outline mb-1">
+<span>INERT</span>
+<span>0%</span>
+</div>
+<div class="h-1 w-full bg-surface-container-highest rounded-full"></div>
+</div>
+<button class="border border-outline-variant text-on-surface font-label text-xs px-6 py-2.5 rounded-md font-bold uppercase tracking-widest hover:bg-surface-variant transition-colors">Download</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Footer -->
+<section class="bg-surface-container-lowest p-6 rounded-lg border border-outline-variant/10">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="info">info</span>
+<div class="space-y-2">
+<h4 class="font-label text-xs uppercase tracking-widest text-primary">Storage Advisory</h4>
+<p class="text-xs text-outline font-body leading-relaxed">
+                        Local models are stored in encrypted partitions. Ensure you have at least 10GB of free disk space for tier 3 model decompression. All processing remains on-device.
+                    </p>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-[#131313]">
+<div class="absolute top-0 left-0 bg-[#1c1c1c] h-[1px] w-full"></div>
+<button class="flex flex-col items-center justify-center text-gray-600 hover:text-[#4edea3] transition-colors scale-105 transition-transform duration-300">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+<span class="font-space-grotesk uppercase tracking-widest text-[10px] mt-1">Chat</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#4edea3] font-bold scale-105 transition-transform duration-300">
+<span class="material-symbols-outlined" data-icon="Memory" style="font-variation-settings: 'FILL' 1;">memory</span>
+<span class="font-space-grotesk uppercase tracking-widest text-[10px] mt-1">Models</span>
+</button>
+<button class="flex flex-col items-center justify-center text-gray-600 hover:text-[#4edea3] transition-colors scale-105 transition-transform duration-300">
+<span class="material-symbols-outlined" data-icon="settings_shield">shield</span>
+<span class="font-space-grotesk uppercase tracking-widest text-[10px] mt-1">Vault</span>
+</button>
+</nav>
+</body></html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Guardian - Advanced Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-background": "#e5e2e1",
+                      "on-error-container": "#ffdad6",
+                      "on-tertiary": "#233144",
+                      "primary-fixed": "#6ffbbe",
+                      "primary-container": "#10b981",
+                      "surface-container-high": "#2a2a2a",
+                      "tertiary-fixed-dim": "#b9c7e0",
+                      "on-secondary": "#213145",
+                      "inverse-primary": "#006c49",
+                      "surface-dim": "#131313",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-secondary-fixed": "#0b1c30",
+                      "on-error": "#690005",
+                      "on-secondary-fixed-variant": "#38485d",
+                      "on-tertiary-container": "#2c3a4e",
+                      "tertiary-fixed": "#d5e3fd",
+                      "surface-container-low": "#1c1b1b",
+                      "background": "#131313",
+                      "on-tertiary-fixed-variant": "#3a485c",
+                      "on-primary-fixed": "#002113",
+                      "tertiary": "#b9c7e0",
+                      "tertiary-container": "#95a4bb",
+                      "outline": "#86948a",
+                      "surface-bright": "#393939",
+                      "surface-tint": "#4edea3",
+                      "inverse-on-surface": "#313030",
+                      "on-tertiary-fixed": "#0d1c2f",
+                      "surface-variant": "#353534",
+                      "error": "#ffb4ab",
+                      "on-primary-container": "#00422b",
+                      "primary": "#4edea3",
+                      "inverse-surface": "#e5e2e1",
+                      "secondary": "#b7c8e1",
+                      "outline-variant": "#3c4a42",
+                      "secondary-fixed-dim": "#b7c8e1",
+                      "surface-container": "#201f1f",
+                      "error-container": "#93000a",
+                      "on-primary": "#003824",
+                      "secondary-fixed": "#d3e4fe",
+                      "on-surface": "#e5e2e1",
+                      "on-surface-variant": "#bbcabf",
+                      "secondary-container": "#3a4a5f",
+                      "on-secondary-container": "#a9bad3",
+                      "primary-fixed-dim": "#4edea3",
+                      "on-primary-fixed-variant": "#005236",
+                      "surface-container-highest": "#353534",
+                      "surface": "#131313"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Manrope"],
+                      "body": ["Inter"],
+                      "label": ["Space Grotesk"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .ghost-border { outline: 1px solid rgba(60, 74, 66, 0.15); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body select-none no-scrollbar overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex items-center justify-between px-6 h-16 bg-[#131313] transition-opacity">
+<div class="flex items-center gap-4">
+<button class="text-[#4edea3] hover:opacity-80 transition-opacity active:duration-150 scale-95">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="text-lg font-bold tracking-tight text-[#4edea3] font-manrope tracking-tighter font-semibold">Settings</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#4edea3]" data-icon="shield_lock">shield_lock</span>
+</div>
+<!-- Separation Logic Line -->
+<div class="absolute bottom-0 left-0 bg-[#1c1c1c] h-[1px] w-full"></div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-2xl mx-auto space-y-10">
+<!-- Strict Offline Mode Section -->
+<section class="space-y-4">
+<div class="p-6 rounded-xl bg-surface-container-low ghost-border">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="bg-primary-container/10 p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="gpp_maybe">gpp_maybe</span>
+</div>
+<div>
+<h2 class="text-on-surface font-headline font-semibold text-lg leading-tight">Strict Offline Mode</h2>
+<p class="text-on-surface-variant text-xs font-label uppercase tracking-wider">Maximum Security Protocol</p>
+</div>
+</div>
+<!-- Custom Toggle -->
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-12 h-6 bg-surface-container-highest rounded-full peer-checked:bg-primary-container transition-colors relative">
+<div class="absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform peer-checked:translate-x-6"></div>
+</div>
+</label>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed border-t border-outline-variant/10 pt-4 mt-4">
+                    When enabled, the application will terminate all networking sockets and force local-only inference. External API calls and telemetry are hardware-blocked.
+                </p>
+</div>
+</section>
+<!-- Permissions Bento Grid -->
+<section class="space-y-6">
+<h3 class="font-label text-xs uppercase tracking-[0.2em] text-on-surface-variant px-1">Access Permissions</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Camera -->
+<div class="p-5 rounded-lg bg-surface-container-high flex items-center justify-between">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="photo_camera">photo_camera</span>
+<span class="text-sm font-medium">Camera</span>
+</div>
+<input class="w-5 h-5 rounded-sm border-outline-variant bg-surface-container-lowest text-primary focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</div>
+<!-- Contacts -->
+<div class="p-5 rounded-lg bg-surface-container-high flex items-center justify-between">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="contacts">contacts</span>
+<span class="text-sm font-medium">Contacts</span>
+</div>
+<input class="w-5 h-5 rounded-sm border-outline-variant bg-surface-container-lowest text-primary focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</div>
+<!-- Calendar -->
+<div class="p-5 rounded-lg bg-surface-container-high flex items-center justify-between">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="calendar_today">calendar_today</span>
+<span class="text-sm font-medium">Calendar</span>
+</div>
+<input checked="" class="w-5 h-5 rounded-sm border-outline-variant bg-surface-container-lowest text-primary focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</div>
+<!-- Storage -->
+<div class="p-5 rounded-lg bg-surface-container-high flex items-center justify-between">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="folder_shared">folder_shared</span>
+<span class="text-sm font-medium">Storage</span>
+</div>
+<input checked="" class="w-5 h-5 rounded-sm border-outline-variant bg-surface-container-lowest text-primary focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</div>
+</div>
+</section>
+<!-- Storage Management -->
+<section class="space-y-6">
+<h3 class="font-label text-xs uppercase tracking-[0.2em] text-on-surface-variant px-1">Storage Distribution</h3>
+<div class="p-6 rounded-xl bg-surface-container-lowest ghost-border">
+<div class="flex justify-between items-end mb-6">
+<div>
+<p class="text-3xl font-headline font-bold text-primary tracking-tighter">14.2 GB</p>
+<p class="text-xs font-label uppercase text-on-surface-variant mt-1">Allocated to local models</p>
+</div>
+<div class="text-right">
+<p class="text-on-surface text-sm font-medium">System Total: 256 GB</p>
+<p class="text-xs text-on-surface-variant italic">5.5% utilized</p>
+</div>
+</div>
+<div class="w-full h-3 bg-surface-container-high rounded-full overflow-hidden flex">
+<div class="h-full bg-primary" style="width: 45%;"></div>
+<div class="h-full bg-secondary" style="width: 20%;"></div>
+<div class="h-full bg-tertiary-container" style="width: 10%;"></div>
+</div>
+<div class="mt-4 flex flex-wrap gap-4">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<span class="text-[10px] font-label uppercase tracking-wider text-on-surface-variant">Llama-3-8B (8.4GB)</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="text-[10px] font-label uppercase tracking-wider text-on-surface-variant">Mistral-7B (4.1GB)</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-tertiary-container"></div>
+<span class="text-[10px] font-label uppercase tracking-wider text-on-surface-variant">Cache (1.7GB)</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Security Actions -->
+<section class="space-y-6">
+<h3 class="font-label text-xs uppercase tracking-[0.2em] text-on-surface-variant px-1">Encryption &amp; Privacy</h3>
+<div class="grid grid-cols-1 gap-3">
+<button class="w-full flex items-center justify-between p-4 rounded-lg bg-surface-container-high hover:bg-surface-container-highest transition-colors group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-error" data-icon="delete_sweep">delete_sweep</span>
+<div class="text-left">
+<p class="text-sm font-medium">Clear Chat History</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Destructive action</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 rounded-lg bg-surface-container-high hover:bg-surface-container-highest transition-colors group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="key_visualizer">key_visualizer</span>
+<div class="text-left">
+<p class="text-sm font-medium">Rotate Encryption Keys</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Regenerate SHA-256 Salts</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Theme Selection -->
+<section class="space-y-6 pb-12">
+<h3 class="font-label text-xs uppercase tracking-[0.2em] text-on-surface-variant px-1">Interface Appearance</h3>
+<div class="flex gap-4">
+<button class="flex-1 p-4 rounded-lg bg-surface-container-lowest ghost-border border-2 border-primary flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="dark_mode">dark_mode</span>
+<span class="text-[10px] font-label uppercase tracking-widest text-primary">Guardian Dark</span>
+</button>
+<button class="flex-1 p-4 rounded-lg bg-surface-container-high opacity-50 flex flex-col items-center gap-2 grayscale">
+<span class="material-symbols-outlined" data-icon="light_mode">light_mode</span>
+<span class="text-[10px] font-label uppercase tracking-widest">Minimal Light</span>
+</button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-[#131313]">
+<!-- Active Tab: Vault/Settings -->
+<a class="flex flex-col items-center justify-center text-gray-600 hover:text-[#4edea3] transition-colors scale-105 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+<span class="font-space-grotesk uppercase tracking-widest text-[10px] mt-1">Chat</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-600 hover:text-[#4edea3] transition-colors scale-105 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="Memory">memory</span>
+<span class="font-space-grotesk uppercase tracking-widest text-[10px] mt-1">Models</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#4edea3] font-bold scale-105 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="settings_shield" style="font-variation-settings: 'FILL' 1;">shield</span>
+<span class="font-space-grotesk uppercase tracking-widest text-[10px] mt-1">Vault</span>
+</a>
+<!-- Separation Logic Line -->
+<div class="absolute top-0 left-0 bg-[#1c1c1c] h-[1px] w-full"></div>
+</nav>
+</body></html>
