@@ -16,7 +16,7 @@
         "NSCalendarsFullAccessUsageDescription": "Babu-Mesthri needs calendar access to schedule events.",
         "NSCameraUsageDescription": "Allow Babu-Mesthri to access your camera to read flyers."
       },
-      "bundleIdentifier": "com.funforest.babu-mesthri"
+      "bundleIdentifier": "com.vaappachi.babu-mesthri"
     },
     "android": {
       "adaptiveIcon": {
@@ -39,7 +39,7 @@
         "android.permission.READ_CALENDAR",
         "android.permission.WRITE_CALENDAR"
       ],
-      "package": "com.funforest.babumesthri"
+      "package": "com.vaappachi.babumesthri"
     },
     "web": {
       "output": "static",
