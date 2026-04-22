@@ -19,7 +19,7 @@ export default function OnboardingScreen() {
           <TouchableOpacity onPress={() => router.back()} style={styles.iconBtn}>
             <Ionicons name="arrow-back" size={24} color={Colors.dark.primary} />
           </TouchableOpacity>
-          <Text style={styles.headerTitle}>The Guardian</Text>
+          <Text style={styles.headerTitle}>Babu Mesthri</Text>
         </View>
         <Ionicons name="shield-checkmark" size={24} color={Colors.dark.primary} />
       </View>
@@ -84,7 +84,7 @@ export default function OnboardingScreen() {
           </View>
           
           <View style={{ marginTop: 12 }}>
-             <Text style={styles.recTitle}>Guardian-7B (Quantum)</Text>
+             <Text style={styles.recTitle}>Babu Mesthri-7B (Quantum)</Text>
              <Text style={styles.recText}>
                Based on your <Text style={{ color: Colors.dark.onSurface, fontWeight: 'bold' }}>12GB RAM</Text>, the 7-billion parameter model offers the perfect balance of reasoning speed and private accuracy.
              </Text>

@@ -89,7 +89,7 @@ export default function ChatScreen() {
           <TouchableOpacity onPress={() => setIsSidebarOpen(true)} style={styles.iconBtn}>
             <Ionicons name="menu" size={24} color={Colors.dark.primary} />
           </TouchableOpacity>
-          <Text style={styles.headerTitle}>The Guardian</Text>
+          <Text style={styles.headerTitle}>Babu Mesthri</Text>
         </View>
         <View style={styles.headerRight}>
           <View style={styles.offlineBadge}>
@@ -138,7 +138,7 @@ export default function ChatScreen() {
                   <View style={styles.botBubble}>
                     <Text style={styles.bodyText}>{msg.content}</Text>
                   </View>
-                  <Text style={styles.labelTime}>Guardian Intelligence</Text>
+                  <Text style={styles.labelTime}>Babu Mesthri Intelligence</Text>
                 </View>
               );
             }

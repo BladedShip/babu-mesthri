@@ -66,7 +66,7 @@ export default function ModelsScreen() {
               <View style={styles.badge}><Text style={styles.badgeText}>GGUF</Text></View>
               {(isDownloaded || isActive) && <Ionicons name="checkmark-circle" size={14} color={Colors.dark.primary} />}
             </View>
-            <Text style={styles.modelSubtitle}>{item.sizeMB} MB • VERIFIED</Text>
+            <Text style={styles.modelSubtitle}>{item.approxSize} DISK • {item.memoryReq} RAM • VERIFIED</Text>
           </View>
         </View>
         

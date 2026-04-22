@@ -1,12 +1,12 @@
-# The Guardian (Babu Mesthri)
+# Babu Mesthri
 
-A premium, privacy-first, offline AI assistant built with React Native and Expo. The application features a custom, monolithic dark aesthetic ("The Guardian") designed to execute neural engine inference entirely inside your mobile device.
+A premium, privacy-first, offline AI assistant built with React Native and Expo. The application features a custom, monolithic dark aesthetic ("Babu Mesthri") designed to execute neural engine inference entirely inside your mobile device.
 
 ## Features
 
 - **Monolithic Dark Theme**: A sleek, premium dark-mode interface built natively with React Native `StyleSheet`, independent of external layout libraries.
 - **Strict Offline Mode**: A maximum security protocol toggle in the Vault that forces strictly local processing and blocks all external API telemetry.
-- **Model Hub**: Download, manage, and activate local models (e.g., Guardian-7B, Qwen2.5) while monitoring real-time system RAM availability.
+- **Model Hub**: Download, manage, and activate local models (e.g., Babu Mesthri-7B, Qwen2.5) while monitoring real-time system RAM availability.
 - **Hardware Authentication**: A specialized onboarding sequence that assesses your device's neural engine capacity.
 - **Encrypted Conversational Canvas**: A beautiful native chat interface, featuring custom assistant bubbles, a floating input terminal, and multi-session persistence.
 
