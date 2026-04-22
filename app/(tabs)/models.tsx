@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useAppStore } from '../../store/appStore';
 import { ModelManager, AVAILABLE_MODELS } from '../../services/ModelManager';
@@ -8,9 +8,10 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function ModelsScreen() {
   const insets = useSafeAreaInsets();
-  const { activeModelId, setActiveModel } = useAppStore();
+  const { activeModelId, setActiveModel, isOfflineMode } = useAppStore();
   const [downloadedModels, setDownloadedModels] = useState<Record<string, boolean>>({});
   const [downloadProgress, setDownloadProgress] = useState<Record<string, number>>({});
+  const [offlineWarningVisible, setOfflineWarningVisible] = useState(false);
 
   useEffect(() => {
     checkModels();
@@ -25,6 +26,13 @@ export default function ModelsScreen() {
   };
 
   const handleDownload = async (modelId: string) => {
+    // Guard: Block download when offline mode is active
+    if (isOfflineMode) {
+      setOfflineWarningVisible(true);
+      setTimeout(() => setOfflineWarningVisible(false), 5000);
+      return;
+    }
+
     setDownloadProgress(prev => ({ ...prev, [modelId]: 0 }));
     try {
       await ModelManager.startDownload(modelId, (progress) => {
@@ -32,17 +40,45 @@ export default function ModelsScreen() {
       });
       await checkModels();
       if (!activeModelId) setActiveModel(modelId);
-    } catch {
-      alert('Download failed');
+    } catch (e: any) {
+      const message = e?.message || 'Unknown error';
+      Alert.alert(
+        'Download Failed',
+        `Could not download the model.\n\n${message}`,
+        [{ text: 'OK' }]
+      );
     } finally {
       setDownloadProgress(prev => { const n = {...prev}; delete n[modelId]; return n; });
     }
   };
 
-  const handleDelete = async (filename: string) => {
-     await ModelManager.deleteModel(filename);
-     await checkModels();
-  }
+  const handleCancelDownload = async (modelId: string) => {
+    try {
+      await ModelManager.cancelDownload(modelId);
+    } catch {
+      // Best-effort cancel
+    }
+    setDownloadProgress(prev => { const n = {...prev}; delete n[modelId]; return n; });
+    await checkModels();
+  };
+
+  const handleDelete = async (filename: string, modelName: string) => {
+    Alert.alert(
+      'Delete Model',
+      `Are you sure you want to delete "${modelName}"? This will free up disk space but you'll need to re-download it to use it again.`,
+      [
+        { text: 'Cancel', style: 'cancel' },
+        {
+          text: 'Delete',
+          style: 'destructive',
+          onPress: async () => {
+            await ModelManager.deleteModel(filename);
+            await checkModels();
+          }
+        }
+      ]
+    );
+  };
 
   const renderModel = (item: typeof AVAILABLE_MODELS[0], index: number) => {
     const isDownloaded = downloadedModels[item.id];
@@ -86,7 +122,7 @@ export default function ModelsScreen() {
 
         <View style={styles.actionRow}>
           {isDownloading ? (
-             <TouchableOpacity style={styles.btnCancel}>
+             <TouchableOpacity style={styles.btnCancel} onPress={() => handleCancelDownload(item.id)}>
               <Text style={styles.btnCancelText}>CANCEL</Text>
             </TouchableOpacity>
           ) : isDownloaded ? (
@@ -97,7 +133,7 @@ export default function ModelsScreen() {
               >
                 <Text style={styles.btnActivateText}>{isActive ? 'ACTIVE' : 'ACTIVATE'}</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.btnDelete} onPress={() => handleDelete(item.filename)}>
+              <TouchableOpacity style={styles.btnDelete} onPress={() => handleDelete(item.filename, item.name)}>
                  <Ionicons name="trash" size={16} color={Colors.dark.onError} />
               </TouchableOpacity>
             </View>
@@ -121,6 +157,22 @@ export default function ModelsScreen() {
       </View>
 
       <ScrollView style={styles.scrollArea} contentContainerStyle={styles.scrollContent}>
+        {/* Offline Warning Banner */}
+        {offlineWarningVisible && (
+          <View style={styles.offlineWarningBanner}>
+            <Ionicons name="warning" size={20} color="#FFA726" />
+            <View style={{ flex: 1 }}>
+              <Text style={styles.offlineWarningTitle}>Offline Mode Active</Text>
+              <Text style={styles.offlineWarningText}>
+                Downloads are blocked while Strict Offline Mode is enabled. Disable it in the Settings tab to download models.
+              </Text>
+            </View>
+            <TouchableOpacity onPress={() => setOfflineWarningVisible(false)} style={{ padding: 4 }}>
+              <Ionicons name="close" size={18} color={Colors.dark.onSurfaceVariant} />
+            </TouchableOpacity>
+          </View>
+        )}
+
         {/* RAM Checker */}
         <View style={styles.ramCheckerSection}>
           <View style={styles.ramInfoCard}>
@@ -175,11 +227,35 @@ const styles = StyleSheet.create({
   headerTitle: { fontFamily: 'Manrope_700Bold', fontSize: 18, color: Colors.dark.primary, letterSpacing: -0.5 },
   scrollArea: { flex: 1 },
   scrollContent: { padding: 24, gap: 32 },
+
+  offlineWarningBanner: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 12,
+    backgroundColor: 'rgba(255, 167, 38, 0.1)',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 167, 38, 0.3)',
+    borderRadius: 12,
+    padding: 16,
+  },
+  offlineWarningTitle: {
+    fontFamily: 'Manrope_700Bold',
+    fontSize: 13,
+    color: '#FFA726',
+    marginBottom: 4,
+  },
+  offlineWarningText: {
+    fontFamily: 'Inter_400Regular',
+    fontSize: 12,
+    color: Colors.dark.onSurfaceVariant,
+    lineHeight: 18,
+  },
+
   ramCheckerSection: { flexDirection: 'row', gap: 16 },
   ramInfoCard: { flex: 1, backgroundColor: Colors.dark.surfaceContainerLow, padding: 24, borderRadius: 16, gap: 24 },
   ramHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start' },
   labelSmall: { fontFamily: 'SpaceGrotesk_500Medium', fontSize: 10, textTransform: 'uppercase', letterSpacing: 1, color: Colors.dark.primary, marginBottom: 4 },
-  ramTitle: { fontFamily: 'Manrope_800ExtraBold', fontSize: 24, tracking: -0.5, color: Colors.dark.onBackground },
+  ramTitle: { fontFamily: 'Manrope_800ExtraBold', fontSize: 24, letterSpacing: -0.5, color: Colors.dark.onBackground },
   ramBadge: { backgroundColor: Colors.dark.surfaceContainerHighest, paddingHorizontal: 8, paddingVertical: 4, borderRadius: 4 },
   ramBadgeText: { fontFamily: 'SpaceGrotesk_500Medium', fontSize: 10, textTransform: 'uppercase', letterSpacing: 1, color: Colors.dark.primaryFixed },
   ramUsageRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline' },

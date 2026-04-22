@@ -27,9 +27,13 @@ const themeColors = {
   outline: '#86948a',
   outlineVariant: '#3c4a42',
   secondary: '#b7c8e1',
+  secondaryContainer: '#374b5f',
+  onSecondaryContainer: '#d3e4f9',
   onSecondary: '#213145',
+  tertiaryContainer: '#4a4458',
   error: '#ffb4ab',
   onError: '#690005',
+  surfaceContainerActive: 'rgba(78, 222, 163, 0.15)',
 };
 
 export const Colors = {

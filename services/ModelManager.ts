@@ -254,6 +254,28 @@ class ModelManagerService {
     return 0;
   }
 
+  /**
+   * Returns an array of { model, sizeBytes } for all models currently on disk.
+   * Used by the vault/settings screen for real storage reporting.
+   */
+  async getDownloadedModelsWithSizes(): Promise<Array<{ model: ModelConfig; sizeBytes: number }>> {
+    const results: Array<{ model: ModelConfig; sizeBytes: number }> = [];
+    for (const model of AVAILABLE_MODELS) {
+      const size = await this.getDownloadedSize(model.filename);
+      if (size > 0) {
+        results.push({ model, sizeBytes: size });
+      }
+    }
+    return results;
+  }
+
+  /**
+   * Returns the IDs of all models currently being downloaded.
+   */
+  getActiveDownloadIds(): string[] {
+    return Object.keys(this.activeDownloads);
+  }
+
   async startDownload(modelId: string, onProgress: (progress: number) => void) {
     const model = AVAILABLE_MODELS.find(m => m.id === modelId);
     if (!model) throw new Error('Model configuration not found.');
@@ -295,6 +317,31 @@ class ModelManagerService {
     const download = this.activeDownloads[modelId];
     if (download) {
       await download.resumeAsync();
+    }
+  }
+
+  /**
+   * Cancel an active download and clean up the partial file.
+   */
+  async cancelDownload(modelId: string) {
+    const download = this.activeDownloads[modelId];
+    if (download) {
+      try {
+        await download.pauseAsync();
+      } catch {
+        // May fail if already stopped, that's fine
+      }
+      delete this.activeDownloads[modelId];
+    }
+
+    // Clean up partial file
+    const model = AVAILABLE_MODELS.find(m => m.id === modelId);
+    if (model) {
+      const path = this.getModelPath(model.filename);
+      const info = await getInfoAsync(path);
+      if (info.exists) {
+        await deleteAsync(path);
+      }
     }
   }
 
